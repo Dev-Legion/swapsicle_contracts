@@ -12,7 +12,12 @@ const {
   BSC_URL_TESTNET,
   MM_SS_DEPLOYER,
   AVALANCHE_API_KEY,
-  MM_BG_SS_DEPLOYER
+  MM_BG_SS_DEPLOYER,
+  POLY_API_KEY,
+  FANTOM_API_KEY,
+  ARBITRUM_API_KEY,
+  OPTIMISM_API_KEY,
+  ETH_API_KEY
 } = process.env;
 module.exports = {
   solidity: {
@@ -33,7 +38,7 @@ module.exports = {
     hardhat: {},
     eth: {
       url: ETH_URL,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
+      accounts: [MM_SS_DEPLOYER],
     },
     bsc: {
       url: BSC_URL,
@@ -41,16 +46,7 @@ module.exports = {
     },
     poly: {
       url: POLY_URL,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
-      gasPrice: 50000000000,
-    },
-    ropsten: {
-      url: ROPSTEN_URL,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
-    },
-    rinkeby: {
-      url: RINKEBY_URL,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
+      accounts: [MM_BG_SS_DEPLOYER]
     },
     bscTestnet: {
       url: BSC_URL_TESTNET,
@@ -60,16 +56,31 @@ module.exports = {
       url: "https://api.avax.network/ext/bc/C/rpc",
       accounts: [MM_SS_DEPLOYER],
     },     
+    opera: {
+      url: "https://rpc.ftm.tools/",
+      accounts: [MM_SS_DEPLOYER],
+    },
+    arbitrumOne: {
+      url: "https://arb1.arbitrum.io/rpc",
+      accounts: [MM_SS_DEPLOYER],
+    },
+    optimisticEthereum: {
+      url: "https://mainnet.optimism.io",
+      accounts: [MM_SS_DEPLOYER],
+    }        
   },
   etherscan: {
     apiKey: {
-      //eth: ETH_API_KEY,
+      //mainnet: ETH_API_KEY,
       //bsc: BSC_API_KEY,
-      //poly: POLY_API_KEY,
+      //polygon: POLY_API_KEY,
       //apiKey: ETH_API_KEY, //eth
       //rinkeby: ETH_API_KEY
       //bscTestnet: BSC_API_KEY,
-      avalanche: AVALANCHE_API_KEY
+      //avalanche: AVALANCHE_API_KEY
+      opera: FANTOM_API_KEY,
+      //arbitrumOne: ARBITRUM_API_KEY,
+      //optimisticEthereum: OPTIMISM_API_KEY
     }
   }  
 };

@@ -127,9 +127,9 @@ contract SiclePair is SicleERC20 {
     // if fee is on, mint liquidity equivalent to 1/6th of the growth in sqrt(k)
     function _mintFee(uint112 _reserve0, uint112 _reserve1) private returns (bool feeOn) {
         address feeTo = ISicleFactory(factory).feeTo();
-        address feeToStake = ISicleFactory(factory).feeToStake();
+        //address feeToStake = ISicleFactory(factory).feeToStake();
         feeOn = feeTo != address(0);
-        bool feeOnStake = feeToStake != address(0);
+        //bool feeOnStake = feeToStake != address(0);
         uint _kLast = kLast; // gas savings
         if (feeOn) {
             if (_kLast == 0) return feeOn;
@@ -137,19 +137,19 @@ contract SiclePair is SicleERC20 {
             uint rootKLast = Math.sqrt(_kLast);
             if (rootK <= rootKLast) return feeOn;
             uint numerator = totalSupply.mul(rootK.sub(rootKLast));
-            uint denominator = (rootK.mul(17) / 3).add(rootKLast);
+            uint denominator = rootK.mul(5).add(rootKLast);
             uint liquidity = numerator / denominator;
             if (liquidity > 0) {
                 _mint(feeTo, liquidity);
             }
 
-            if(feeOnStake) {
+/*             if(feeOnStake) {
                 denominator = (rootK.mul(349)/ 51).add(rootKLast);
                 liquidity = numerator / denominator;
                 if (liquidity > 0) {
                     _mint(feeToStake, liquidity);
                 }
-            }
+            } */
         } else if (_kLast != 0) {
             kLast = 0;
         }

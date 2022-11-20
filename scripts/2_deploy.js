@@ -10,21 +10,26 @@ const { deployments, ethers } = require("hardhat");
 //**** SET sicleFactoryAddress BEFORE RUNNING ****/
 
 async function main() {
-  const weth = "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"; //WAVAX
+  //const weth = "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"; //WAVAX
+  //const weth = "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"; //WMATIC
+  //const weth = "0x4200000000000000000000000000000000000006"; //WETH on Optimism
+  //const weth = "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"; //WETH on Arbitrum
+  const weth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; //WETH on Ethereum
   const INITIAL_MINT = ethers.utils.parseEther("79501600");
   const tokenName = "PToken"; //POPSToken
   const tokenSymbol = "PT"; //POPS
-  const feeTo = "0x58334Ad2C84619bC1F9C61372FcA6D5EB787De64";
+  //const feeTo = "0x58334Ad2C84619bC1F9C61372FcA6D5EB787De64";
+  const feeTo = "0xA49Ba0C8bDabE48f34f96C891e2b31BdA1D0Bf4a";
   // SET FACTORY ADDRESS
-  const sicleFactoryAddress = "0x9C60C867cE07a3c403E2598388673C10259EC768";
+  const sicleFactoryAddress = "0xEe673452BD981966d4799c865a96e0b92A8d0E45";
   // SET POPSToken ADDRESS
-  const popsTokenAddress = "0x240248628B7B6850352764C5dFa50D1592A033A8";
+  //const popsTokenAddress = "0x240248628B7B6850352764C5dFa50D1592A033A8";
 
   //verification
   const verify = true;
-  const sicleRouterAddress = "0xC7f372c62238f6a5b79136A9e5D16A2FD7A3f0F5";
-  const popsBarAddress = "0x5108176bC1B7e72440e6B48862c51d7eB0AEd5c4";
-  const iceCreamVanAddress = "0x8F0d1e091aC53A2C4143C1ecC1067F7E337680D3";
+  const sicleRouterAddress = "0x63530632e8fE40aCf8f1f4324f7645256263b64f";
+  const popsBarAddress = "";
+  const iceCreamVanAddress = "";
 
   const [deployer] = await ethers.getSigners();
   console.log("deploy by acct: " + deployer.address);
@@ -43,7 +48,7 @@ async function main() {
   await sicleRouter.deployed();
   console.log("SicleRouter:", sicleRouter.address);
 
-  //POPSToken
+/*   //POPSToken
   const POPSToken = await ethers.getContractFactory("POPSToken");
   const popsToken = await POPSToken.attach(popsTokenAddress);
   console.log("POPSToken:", popsToken.address);
@@ -67,26 +72,26 @@ async function main() {
       weth
     );
   await iceCreamVan.deployed();
-  console.log("IceCreamVan:", iceCreamVan.address);
+  console.log("IceCreamVan:", iceCreamVan.address); */
 
-  if (!verify) {
+  //if (!verify) {
     await sicleFactory.setFeeTo(feeTo);
     console.log("Set feeTo:", feeTo);
-  }
-  if (!verify) {
+  //}
+/*   if (!verify) {
     await sicleFactory.setFeeToStake(iceCreamVan.address);
     console.log("Set feeToStake:", iceCreamVan.address);
-  }
+  } */
 
   if (!verify) return;
 
-/*   console.log("verifying SicleRouter02");
+   console.log("verifying SicleRouter02");
   await run("verify:verify", {
     address: sicleRouter.address,
     contract: "contracts/sicle/SicleRouter02.sol:SicleRouter02",
     constructorArguments: [sicleFactory.address, weth]
   });
-
+/*
   console.log("verifying POPSBar");
   await run("verify:verify", {
     address: popsBar.address,
@@ -94,7 +99,7 @@ async function main() {
     constructorArguments: [popsToken.address]
   });   */
 
-  console.log("verifying IceCreamVan");
+/*   console.log("verifying IceCreamVan");
   await run("verify:verify", {
     address: iceCreamVan.address,
     contract: "contracts/IceCreamVan.sol:IceCreamVan",
@@ -104,7 +109,7 @@ async function main() {
       popsToken.address,
       weth
     ]
-  });
+  }); */
 }
 
 main()
