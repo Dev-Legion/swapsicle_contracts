@@ -42,15 +42,15 @@ module.exports = {
     },
     bsc: {
       url: BSC_URL,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
+      accounts: [`0x${MM_SS_DEPLOYER}`],
     },
     poly: {
       url: POLY_URL,
-      accounts: [MM_BG_SS_DEPLOYER]
+      accounts: [MM_SS_DEPLOYER]
     },
     bscTestnet: {
       url: BSC_URL_TESTNET,
-      accounts: [`0x${METAMASK_PRIVATE_KEY_ACCT1}`],
+      accounts: [`0x${MM_SS_DEPLOYER}`],
     },
     avalanche: {
       url: "https://api.avax.network/ext/bc/C/rpc",
@@ -71,14 +71,14 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      //mainnet: ETH_API_KEY,
+      mainnet: ETH_API_KEY,
       //bsc: BSC_API_KEY,
       //polygon: POLY_API_KEY,
       //apiKey: ETH_API_KEY, //eth
       //rinkeby: ETH_API_KEY
       //bscTestnet: BSC_API_KEY,
       //avalanche: AVALANCHE_API_KEY
-      opera: FANTOM_API_KEY,
+      //opera: FANTOM_API_KEY,
       //arbitrumOne: ARBITRUM_API_KEY,
       //optimisticEthereum: OPTIMISM_API_KEY
     }

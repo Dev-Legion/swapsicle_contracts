@@ -5,7 +5,7 @@ const { deployments, ethers } = require("hardhat");
 async function main() {
   //verification
   const verify = false;
-  const sicleFactoryAddress = "0xEe673452BD981966d4799c865a96e0b92A8d0E45";
+  const sicleFactoryAddress = "0x2F0C7C98462651BB2102F6Cd05acDAd333E031b0";
 
   const [deployer] = await ethers.getSigners();
   console.log("deploy by acct: " + deployer.address);
@@ -23,6 +23,7 @@ async function main() {
 
   if (!verify) return;
 
+  console.log("pairCodeHash:", await sicleFactory.pairCodeHash());
   console.log("verifying SicleFactory");
   await run("verify:verify", {
     address: sicleFactory.address,

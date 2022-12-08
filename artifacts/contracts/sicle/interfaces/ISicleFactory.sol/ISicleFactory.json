@@ -117,6 +117,19 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "feeToStake",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -175,6 +188,19 @@
         }
       ],
       "name": "setFeeToSetter",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "setFeeToStake",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

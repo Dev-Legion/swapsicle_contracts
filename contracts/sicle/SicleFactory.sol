@@ -8,7 +8,7 @@ import './SiclePair.sol';
 //UniswapV2Factory
 contract SicleFactory is ISicleFactory {
     address public override feeTo;
-    //address public override feeToStake;
+    address public override feeToStake;
     address public override feeToSetter;
     address public override migrator;
 
@@ -51,10 +51,10 @@ contract SicleFactory is ISicleFactory {
         feeTo = _feeTo;
     }
 
-/*     function setFeeToStake(address _feeToStake) external override {
+    function setFeeToStake(address _feeToStake) external override {
         require(msg.sender == feeToSetter, 'Sicle: FORBIDDEN');
         feeToStake = _feeToStake;
-    } */
+    }
 
     function setMigrator(address _migrator) external override {
         require(msg.sender == feeToSetter, 'Sicle: FORBIDDEN');
