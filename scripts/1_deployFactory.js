@@ -4,7 +4,7 @@ const { deployments, ethers } = require("hardhat");
 
 async function main() {
   //verification
-  const verify = false;
+  const verify = true;
   const sicleFactoryAddress = "0x2F0C7C98462651BB2102F6Cd05acDAd333E031b0";
 
   const [deployer] = await ethers.getSigners();

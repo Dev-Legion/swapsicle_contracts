@@ -12,9 +12,9 @@ const { deployments, ethers } = require("hardhat");
 async function main() {
   //const weth = "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"; //WAVAX
   //const weth = "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"; //WMATIC
-  const weth = "0x4200000000000000000000000000000000000006"; //WETH on Optimism
+  //const weth = "0x4200000000000000000000000000000000000006"; //WETH on Optimism
   //const weth = "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"; //WETH on Arbitrum
-  //const weth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; //WETH on Ethereum
+  const weth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; //WETH on Ethereum
   //const weth = "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83"; //WFTM on Fantom
   //const weth = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"; //WBNB on BSC
   const INITIAL_MINT = ethers.utils.parseEther("79501600");
